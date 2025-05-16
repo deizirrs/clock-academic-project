@@ -1,9 +1,5 @@
 package com.deizianerodrigues.timesystem.academicproject;
 
-public class Main {
+public class USClock {
 
-	
-	
-	
-	
 }
