@@ -1,10 +1,10 @@
 package com.deizianerodrigues.timesystem.academicproject;
 
-public abstract class Clock {
+public sealed abstract class Clock permits BRLClock, USClock{
 	
-	private int hour;
-	private int minute;
-	private int second;
+	protected int hour;
+	protected int minute;
+	protected int second;
 	
 	public int getHour() {
 		return hour;
