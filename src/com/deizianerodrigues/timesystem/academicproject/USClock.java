@@ -1,7 +1,7 @@
 package com.deizianerodrigues.timesystem.academicproject;
 
 public non-sealed class USClock extends Clock {
-	
+
 	private String periodIndicator;
 
 	public String getPeriodIndicator() {
@@ -30,6 +30,24 @@ public non-sealed class USClock extends Clock {
 
 	@Override
 	Clock convert(Clock clock) {
-		return null;
+		this.second = clock.getSecond();
+		this.minute = clock.getMinute();
+		switch (clock) {
+		case USClock usClock:
+			this.hour = usClock.getHour();
+			this.periodIndicator = usClock.getPeriodIndicator();
+			break;
+
+		case BRLClock brlClock:
+			this.setHour(brlClock.getHour());
+		}
+		return this;
+
+	}
+	
+	public String getTime() {
+		return super.getTime() + " " + this.periodIndicator;
+		
 	}
 }
+	

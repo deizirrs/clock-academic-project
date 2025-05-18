@@ -37,5 +37,13 @@ public sealed abstract class Clock permits BRLClock, USClock{
 		this.second = second;
 	}
 	
+	private String format(int value) {
+		return value < 10 ? "0" + value : String.valueOf(value);
+	}
+	
+	public String getTime() {
+		return format(hour) + ":" + format(minute)+ ":" + format(second);
+	}
+	
 	abstract Clock convert(Clock clock);
 }
